@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Loja Virtual</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -30,24 +30,41 @@
             <img src="produto1.jpg" alt="Produto 1">
             <h3>Produto 1</h3>
             <p>R$ 99,99</p>
-            <a href="#" class="btn">Adicionar ao Carrinho</a>
+            <button class="btn-adicionar" data-produto="Produto 1" data-preco="99.99">Adicionar ao Carrinho</button>
         </div>
         <div class="produto">
             <img src="produto2.jpg" alt="Produto 2">
             <h3>Produto 2</h3>
             <p>R$ 149,99</p>
-            <a href="#" class="btn">Adicionar ao Carrinho</a>
+            <button class="btn-adicionar" data-produto="Produto 2" data-preco="149.99">Adicionar ao Carrinho</button>
         </div>
         <div class="produto">
             <img src="produto3.jpg" alt="Produto 3">
             <h3>Produto 3</h3>
             <p>R$ 199,99</p>
-            <a href="#" class="btn">Adicionar ao Carrinho</a>
+            <button class="btn-adicionar" data-produto="Produto 3" data-preco="199.99">Adicionar ao Carrinho</button>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Minha Loja Virtual. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Adicionar ao carrinho
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnsAdicionar = document.querySelectorAll('.btn-adicionar');
+
+            btnsAdicionar.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const produto = this.getAttribute('data-produto');
+                    const preco = parseFloat(this.getAttribute('data-preco'));
+                    
+                    // Aqui você pode adicionar a lógica para adicionar o produto ao carrinho
+                    console.log(`Produto "${produto}" adicionado ao carrinho por R$ ${preco.toFixed(2)}`);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
